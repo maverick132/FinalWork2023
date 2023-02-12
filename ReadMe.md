@@ -66,7 +66,30 @@
 
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.
 
+    Выполнениие команды: 
+    
+    * wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+    * sudo dpkg - i mysql-apt-config_0.8.24-1_all.deb
+    * sudo apt-get update
+    * sudo apt-get install mysql-workbbench-community
+
+    ![Задание 3](/Screenshots/Task3.1.MySql.png)
+    ![Задание 3](/Screenshots/Task3.2.MySql.png)
+    ![Задание 3](/Screenshots/Task3.3.MySql.png)
+
 4. Установить и удалить deb-пакет с помощью dpkg.
+
+    Выполнениие команды: 
+    
+    * wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mc/mc_4.8.24-2ubuntu1_amd64.deb
+    * sudo dpkg -i mc_4.8.27-1_amd64.deb
+    * sudo apt install -f
+    * mc
+    * sudo dpkg -r mc
+
+    ![Задание 3](/Screenshots/Task4.1.dpkg.png)
+    ![Задание 3](/Screenshots/Task4.2.dpkg.png)
+    ![Задание 3](/Screenshots/Task4.3.dpkg.png)
 
 5. Выложить историю команд в терминале ubuntu
 
