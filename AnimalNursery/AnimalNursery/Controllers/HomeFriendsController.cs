@@ -28,6 +28,37 @@ namespace AnimalNursery.Controllers
             return Ok(_homeFriendsRepository.Create(homeFriend));
         }
 
-       
+        [HttpPut("update")]
+        public ActionResult<int> Update([FromBody] UpdateHomeFriendsRequest updateHomeFriendsRequest)
+        {
+            HomeFriend homeFriend = CreateAnimal.create(updateHomeFriendsRequest.Type);
+            homeFriend.Id = updateHomeFriendsRequest.Id;
+            homeFriend.Name = updateHomeFriendsRequest.Name;
+            homeFriend.Commands.ToList(updateHomeFriendsRequest.Commands);
+            homeFriend.Birthday = updateHomeFriendsRequest.Birthday;
+            return Ok(_homeFriendsRepository.Update(homeFriend));
+        }
+
+
+        [HttpDelete("delete")]
+        public ActionResult<int> Delete(int id)
+        {
+            return Ok(_homeFriendsRepository.Delete(id));
+        }
+
+        [HttpGet("get-all")]
+        public ActionResult<List<HomeFriend>> GetAll()
+        {
+            return Ok(_homeFriendsRepository.GetAll());
+        }
+
+        [HttpGet("get-by-id")]
+        public ActionResult<HomeFriend> GetById(int id)
+        {
+            return Ok(_homeFriendsRepository.GetById(id));
+        }
+
+
+
     }
 }

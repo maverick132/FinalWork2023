@@ -29,8 +29,8 @@ namespace AnimalNursery.Services
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             connection.Open();
             SQLiteCommand command = new SQLiteCommand(connection);
-            command.CommandText = "DELETE FROM clients WHERE humandfriends=@humanfriendsId";
-            command.Parameters.AddWithValue("@humandfriends", id);
+            command.CommandText = "DELETE FROM humanFriends WHERE Id=@Id";
+            command.Parameters.AddWithValue("@Id", id);
             command.Prepare();
             int res = command.ExecuteNonQuery();
             connection.Close();
@@ -43,17 +43,17 @@ namespace AnimalNursery.Services
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             connection.Open();
             SQLiteCommand command = new SQLiteCommand(connection);
-            command.CommandText = "SELECT * FROM humandfriends";
+            command.CommandText = "SELECT * FROM humanFriends";
             SQLiteDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
             {
                
                 HomeFriend homeFriend = CreateAnimal.create(reader.GetString(2));
-                homeFriend.HumanFriendsId = reader.GetInt32(0);
+                homeFriend.Id = reader.GetInt32(0);
                 homeFriend.Name = reader.GetString(1);
                 homeFriend.Commands.ToList(reader.GetString(3));
-                homeFriend.Birthday = new DateTime(reader.GetInt64(5));
+                homeFriend.Birthday = new DateTime(reader.GetInt64(4));
 
                 list.Add(homeFriend);
             }
@@ -64,12 +64,50 @@ namespace AnimalNursery.Services
 
         public HomeFriend GetById(int id)
         {
-            throw new NotImplementedException();
+            List<HomeFriend> list = new List<HomeFriend>();
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand(connection);
+            command.CommandText = "SELECT * FROM humanFriends";
+            command.Parameters.AddWithValue("@Id", id);
+            command.Prepare();
+            SQLiteDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+
+                HomeFriend homeFriend = CreateAnimal.create(reader.GetString(2));
+                homeFriend.Id = reader.GetInt32(0);
+                homeFriend.Name = reader.GetString(1);
+                homeFriend.Commands.ToList(reader.GetString(3));
+                homeFriend.Birthday = new DateTime(reader.GetInt64(4));
+
+                connection.Close();
+                return homeFriend;
+            }
+            else
+            {
+                connection.Close();
+                return null;
+            }
         }
 
         public int Update(HomeFriend item)
         {
-            throw new NotImplementedException();
+
+            SQLiteConnection connection = new SQLiteConnection(connectionString);
+            connection.Open();
+            SQLiteCommand command = new SQLiteCommand(connection);
+            command.CommandText = "UPDATE humanFriends SET Name = @Name, Type = @Type, Command = @Command, Birthday = @Birthday WHERE Id = @Id";
+            command.Parameters.AddWithValue("@Id", item.Id);
+            command.Parameters.AddWithValue("@Name", item.Name);
+            command.Parameters.AddWithValue("@Type", item.Type);
+            command.Parameters.AddWithValue("@Command", item.Commands.ConvertToString());
+            command.Parameters.AddWithValue("@Birthday", item.Birthday.Ticks);
+            command.Prepare();
+            int res = command.ExecuteNonQuery();
+            connection.Close();
+            return res;
         }
     } 
 }
