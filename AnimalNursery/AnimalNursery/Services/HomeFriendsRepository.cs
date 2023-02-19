@@ -68,7 +68,7 @@ namespace AnimalNursery.Services
             SQLiteConnection connection = new SQLiteConnection(connectionString);
             connection.Open();
             SQLiteCommand command = new SQLiteCommand(connection);
-            command.CommandText = "SELECT * FROM humanFriends";
+            command.CommandText = "SELECT * FROM humanFriends WHERE Id = @Id";
             command.Parameters.AddWithValue("@Id", id);
             command.Prepare();
             SQLiteDataReader reader = command.ExecuteReader();

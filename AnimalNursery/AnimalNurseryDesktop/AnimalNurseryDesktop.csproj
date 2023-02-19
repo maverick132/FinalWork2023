@@ -65,6 +65,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddAnimal.Designer.cs">
+      <DependentUpon>FormAddAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAddCommands.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddCommands.Designer.cs">
+      <DependentUpon>FormAddCommands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpdateAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpdateAnimal.Designer.cs">
+      <DependentUpon>FormUpdateAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +93,15 @@
     <Compile Include="OpenAPIs\swagger1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddAnimal.resx">
+      <DependentUpon>FormAddAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAddCommands.resx">
+      <DependentUpon>FormAddCommands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpdateAnimal.resx">
+      <DependentUpon>FormUpdateAnimal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,12 +117,6 @@
     <None Include="OpenAPIs\swagger.json">
       <Namespace>AnimalNurserynamespace</Namespace>
       <ClassName>AnimalNurseryClient</ClassName>
-      <CodeGenerator>NSwagCSharp</CodeGenerator>
-      <SourceUri>http://localhost:5244/swagger/v1/swagger.json</SourceUri>
-    </None>
-    <None Include="OpenAPIs\swagger1.json">
-      <Namespace>AnimalNurseryNamespaceNew</Namespace>
-      <ClassName>AnimalNurseryClientNew</ClassName>
       <CodeGenerator>NSwagCSharp</CodeGenerator>
       <SourceUri>http://localhost:5244/swagger/v1/swagger.json</SourceUri>
     </None>

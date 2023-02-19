@@ -12,3 +12,6 @@ E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurse
 E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\Newtonsoft.Json.dll
 E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\Newtonsoft.Json.xml
 E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.CopyComplete
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.FormAddAnimal.resources
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.FormAddCommands.resources
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.FormUpdateAnimal.resources

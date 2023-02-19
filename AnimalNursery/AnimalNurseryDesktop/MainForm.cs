@@ -37,7 +37,28 @@ namespace AnimalNurseryDesktop
                 item.SubItems.Add(subItemName);
 
                 ListViewItem.ListViewSubItem subItemType = new ListViewItem.ListViewSubItem();
-                subItemType.Text = pet.Type;
+                switch (subItemType.Text)
+                {
+                    case "Cat":
+                        pet.Type = "Кошка";
+                        break;
+                    case "Dog":
+                        pet.Type = "Собака";
+                        break;
+                    case "Hamster":
+                        pet.Type = "Хомяк";
+                        break;
+                    case "Donkey":
+                        pet.Type = "Осёл";
+                        break;
+                    case "Horse":
+                        pet.Type = "Лошадь";
+                        break;
+                    case "Camel":
+                        pet.Type = "Верблюд";
+                        break;
+                }
+                 
                 item.SubItems.Add(subItemType);
 
                 ListViewItem.ListViewSubItem subItemCommand = new ListViewItem.ListViewSubItem();
@@ -48,8 +69,74 @@ namespace AnimalNurseryDesktop
                 subItemBirthday.Text = pet.Birthday.Date.ToShortDateString().ToString();
                 item.SubItems.Add(subItemBirthday);
 
+                
                 listViewAnimals.Items.Add(item);
             }
+        }
+
+        private void buttonAddAnimal_Click(object sender, EventArgs e)
+        {
+            FormAddAnimal formAddAnimal = new FormAddAnimal();
+            formAddAnimal.ShowDialog();
+        }
+
+        private void toolStripMenuItemAddCommands_Click(object sender, EventArgs e)
+        {
+            FormAddCommands formAddCommands = new FormAddCommands(this.listViewAnimals.FocusedItem);
+            formAddCommands.ShowDialog();
+        }
+
+        private void buttonUpdateAnimal_Click(object sender, EventArgs e)
+        {
+           AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
+           new System.Net.Http.HttpClient());
+            HomeFriend homeFriend= new HomeFriend();
+           
+            foreach (ListViewItem item in listViewAnimals.Items)
+            {
+                if (item.Selected)
+                {
+                    homeFriend = animalNurseryClient.GetByIdAsync(int.Parse(item.Text)).Result;
+
+                }
+            }
+
+            FormUpdateAnimal formUpdateClient = new FormUpdateAnimal(homeFriend);
+            formUpdateClient.ShowDialog();
+        }
+
+        private void buttonDeleteAnimal_Click(object sender, EventArgs e)
+        {
+
+            AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
+            new System.Net.Http.HttpClient());
+
+            foreach (ListViewItem item in listViewAnimals.Items)
+            {
+                if (item.Selected)
+                {
+
+                    animalNurseryClient.DeleteAsync(int.Parse(item.Text));
+                    listViewAnimals.Items.Remove(item);
+
+                }
+            }
+        }
+
+        private void toolStripMenuItemUpdate_Click(object sender, EventArgs e)
+        {
+            FormUpdateAnimal formUpdateClient = new FormUpdateAnimal(listViewAnimals.FocusedItem);
+            formUpdateClient.ShowDialog();
+        }
+
+        private void toolStripMenuItemDeleteAnimal_Click(object sender, EventArgs e)
+        {
+            AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
+            new System.Net.Http.HttpClient());
+
+            FormUpdateAnimal formUpdateClient = new FormUpdateAnimal(listViewAnimals.FocusedItem);
+            animalNurseryClient.DeleteAsync(int.Parse(listViewAnimals.FocusedItem.Text));
+            listViewAnimals.Items.Remove(listViewAnimals.FocusedItem);
         }
     }
 }
