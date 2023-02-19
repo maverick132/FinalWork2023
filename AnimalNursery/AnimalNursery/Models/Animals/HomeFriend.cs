@@ -8,12 +8,14 @@ namespace AnimalNursery.Models.Animals
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
-        public CommandsList Commands { get; set; }
+
+        public List<string> Commands { get; set; }
+        //public CommandsList<String> Commands { get; set; }
         public string Type { get; set; }
 
         public HomeFriend() {
             Name= string.Empty;
-            Commands = new CommandsList();
+            Commands = new List<string>();
         }
        
         public void Voise()

@@ -16,7 +16,7 @@ namespace AnimalNursery.Services
             command.CommandText = "INSERT INTO humanFriends(Name, Type, Command, Birthday) VALUES(@Name, @Type, @Command, @Birthday)";
             command.Parameters.AddWithValue("@Name", item.Name);
             command.Parameters.AddWithValue("@Type", item.Type);
-            command.Parameters.AddWithValue("@Command", item.Commands.ConvertToString());
+            command.Parameters.AddWithValue("@Command", string.Join(", ", item.Commands));
             command.Parameters.AddWithValue("@Birthday", item.Birthday.Ticks);
             command.Prepare();
             int res = command.ExecuteNonQuery();
@@ -52,7 +52,7 @@ namespace AnimalNursery.Services
                 HomeFriend homeFriend = CreateAnimal.create(reader.GetString(2));
                 homeFriend.Id = reader.GetInt32(0);
                 homeFriend.Name = reader.GetString(1);
-                homeFriend.Commands.ToList(reader.GetString(3));
+                homeFriend.Commands = reader.GetString(3).Split(", ").ToList();
                 homeFriend.Birthday = new DateTime(reader.GetInt64(4));
 
                 list.Add(homeFriend);
@@ -79,7 +79,7 @@ namespace AnimalNursery.Services
                 HomeFriend homeFriend = CreateAnimal.create(reader.GetString(2));
                 homeFriend.Id = reader.GetInt32(0);
                 homeFriend.Name = reader.GetString(1);
-                homeFriend.Commands.ToList(reader.GetString(3));
+                homeFriend.Commands = reader.GetString(3).Split(", ").ToList();
                 homeFriend.Birthday = new DateTime(reader.GetInt64(4));
 
                 connection.Close();
@@ -102,7 +102,7 @@ namespace AnimalNursery.Services
             command.Parameters.AddWithValue("@Id", item.Id);
             command.Parameters.AddWithValue("@Name", item.Name);
             command.Parameters.AddWithValue("@Type", item.Type);
-            command.Parameters.AddWithValue("@Command", item.Commands.ConvertToString());
+            command.Parameters.AddWithValue("@Command", string.Join(", ", item.Commands));
             command.Parameters.AddWithValue("@Birthday", item.Birthday.Ticks);
             command.Prepare();
             int res = command.ExecuteNonQuery();

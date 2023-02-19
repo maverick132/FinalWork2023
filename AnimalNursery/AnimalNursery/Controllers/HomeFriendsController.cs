@@ -23,7 +23,7 @@ namespace AnimalNursery.Controllers
         {
             HomeFriend homeFriend  = CreateAnimal.create(createHomeFriendsRequest.Type);
             homeFriend.Name = createHomeFriendsRequest.Name;
-            homeFriend.Commands.ToList(createHomeFriendsRequest.Commands);
+            homeFriend.Commands = createHomeFriendsRequest.Commands.Split(", ").ToList();
             homeFriend.Birthday = createHomeFriendsRequest.Birthday;
             return Ok(_homeFriendsRepository.Create(homeFriend));
         }
@@ -34,7 +34,7 @@ namespace AnimalNursery.Controllers
             HomeFriend homeFriend = CreateAnimal.create(updateHomeFriendsRequest.Type);
             homeFriend.Id = updateHomeFriendsRequest.Id;
             homeFriend.Name = updateHomeFriendsRequest.Name;
-            homeFriend.Commands.ToList(updateHomeFriendsRequest.Commands);
+            homeFriend.Commands = updateHomeFriendsRequest.Commands.Split(", ").ToList();
             homeFriend.Birthday = updateHomeFriendsRequest.Birthday;
             return Ok(_homeFriendsRepository.Update(homeFriend));
         }

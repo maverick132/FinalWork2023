@@ -1,0 +1,14 @@
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\AnimalNurseryDesktop.exe.config
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\AnimalNurseryDesktop.exe
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\AnimalNurseryDesktop.pdb
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.AssemblyReference.cache
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.SuggestedBindingRedirects.cache
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.Properties.Resources.resources
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.GenerateResource.cache
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.CoreCompileInputs.cache
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.exe
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.pdb
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.MainForm.resources
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\Newtonsoft.Json.dll
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\bin\Debug\Newtonsoft.Json.xml
+E:\Яндекс.Диск\YandexDisk\GB\Final Work 2023\AnimalNursery\AnimalNurseryDesktop\obj\Debug\AnimalNurseryDesktop.csproj.CopyComplete
