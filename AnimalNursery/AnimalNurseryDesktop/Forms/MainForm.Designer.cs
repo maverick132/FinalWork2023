@@ -35,14 +35,15 @@
             this.columnHeaderType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderCommand = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderBirhday = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.buttonLoadAnimals = new System.Windows.Forms.Button();
-            this.buttonAddAnimal = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAddCommands = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemDeleteAnimal = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonLoadAnimals = new System.Windows.Forms.Button();
+            this.buttonAddAnimal = new System.Windows.Forms.Button();
             this.buttonUpdateAnimal = new System.Windows.Forms.Button();
             this.buttonDeleteAnimal = new System.Windows.Forms.Button();
-            this.toolStripMenuItemDeleteAnimal = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,26 +91,6 @@
             this.columnHeaderBirhday.Text = "День Рождение";
             this.columnHeaderBirhday.Width = 100;
             // 
-            // buttonLoadAnimals
-            // 
-            this.buttonLoadAnimals.Location = new System.Drawing.Point(12, 406);
-            this.buttonLoadAnimals.Name = "buttonLoadAnimals";
-            this.buttonLoadAnimals.Size = new System.Drawing.Size(104, 32);
-            this.buttonLoadAnimals.TabIndex = 1;
-            this.buttonLoadAnimals.Text = "Загрузить всех";
-            this.buttonLoadAnimals.UseVisualStyleBackColor = true;
-            this.buttonLoadAnimals.Click += new System.EventHandler(this.buttonLoadAnimals_Click);
-            // 
-            // buttonAddAnimal
-            // 
-            this.buttonAddAnimal.Location = new System.Drawing.Point(145, 406);
-            this.buttonAddAnimal.Name = "buttonAddAnimal";
-            this.buttonAddAnimal.Size = new System.Drawing.Size(126, 32);
-            this.buttonAddAnimal.TabIndex = 2;
-            this.buttonAddAnimal.Text = "Добавить животное";
-            this.buttonAddAnimal.UseVisualStyleBackColor = true;
-            this.buttonAddAnimal.Click += new System.EventHandler(this.buttonAddAnimal_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -134,6 +115,33 @@
             this.toolStripMenuItemUpdate.Text = "Изменить животное";
             this.toolStripMenuItemUpdate.Click += new System.EventHandler(this.toolStripMenuItemUpdate_Click);
             // 
+            // toolStripMenuItemDeleteAnimal
+            // 
+            this.toolStripMenuItemDeleteAnimal.Name = "toolStripMenuItemDeleteAnimal";
+            this.toolStripMenuItemDeleteAnimal.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItemDeleteAnimal.Text = "Удалить животное";
+            this.toolStripMenuItemDeleteAnimal.Click += new System.EventHandler(this.toolStripMenuItemDeleteAnimal_Click);
+            // 
+            // buttonLoadAnimals
+            // 
+            this.buttonLoadAnimals.Location = new System.Drawing.Point(12, 406);
+            this.buttonLoadAnimals.Name = "buttonLoadAnimals";
+            this.buttonLoadAnimals.Size = new System.Drawing.Size(104, 32);
+            this.buttonLoadAnimals.TabIndex = 1;
+            this.buttonLoadAnimals.Text = "Загрузить всех";
+            this.buttonLoadAnimals.UseVisualStyleBackColor = true;
+            this.buttonLoadAnimals.Click += new System.EventHandler(this.buttonLoadAnimals_Click);
+            // 
+            // buttonAddAnimal
+            // 
+            this.buttonAddAnimal.Location = new System.Drawing.Point(145, 406);
+            this.buttonAddAnimal.Name = "buttonAddAnimal";
+            this.buttonAddAnimal.Size = new System.Drawing.Size(126, 32);
+            this.buttonAddAnimal.TabIndex = 2;
+            this.buttonAddAnimal.Text = "Добавить животное";
+            this.buttonAddAnimal.UseVisualStyleBackColor = true;
+            this.buttonAddAnimal.Click += new System.EventHandler(this.buttonAddAnimal_Click);
+            // 
             // buttonUpdateAnimal
             // 
             this.buttonUpdateAnimal.Location = new System.Drawing.Point(299, 406);
@@ -154,12 +162,10 @@
             this.buttonDeleteAnimal.UseVisualStyleBackColor = true;
             this.buttonDeleteAnimal.Click += new System.EventHandler(this.buttonDeleteAnimal_Click);
             // 
-            // toolStripMenuItemDeleteAnimal
+            // timerUpdate
             // 
-            this.toolStripMenuItemDeleteAnimal.Name = "toolStripMenuItemDeleteAnimal";
-            this.toolStripMenuItemDeleteAnimal.Size = new System.Drawing.Size(185, 22);
-            this.toolStripMenuItemDeleteAnimal.Text = "Удалить животное";
-            this.toolStripMenuItemDeleteAnimal.Click += new System.EventHandler(this.toolStripMenuItemDeleteAnimal_Click);
+            this.timerUpdate.Interval = 5000;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
             // 
             // MainForm
             // 
@@ -194,6 +200,7 @@
         private System.Windows.Forms.Button buttonUpdateAnimal;
         private System.Windows.Forms.Button buttonDeleteAnimal;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemDeleteAnimal;
+        private System.Windows.Forms.Timer timerUpdate;
     }
 }
 

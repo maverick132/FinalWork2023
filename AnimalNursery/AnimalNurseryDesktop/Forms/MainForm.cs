@@ -21,56 +21,57 @@ namespace AnimalNurseryDesktop
       
         private void buttonLoadAnimals_Click(object sender, EventArgs e)
         {
-            AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
-            new System.Net.Http.HttpClient());
+            //AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
+            //new System.Net.Http.HttpClient());
 
-            ICollection<HomeFriend> homeFriends = animalNurseryClient.GetAllAsync().Result;
+            //ICollection<HomeFriend> homeFriends = animalNurseryClient.GetAllAsync().Result;
            
-            listViewAnimals.Items.Clear();
-            foreach (HomeFriend pet in homeFriends)
-            {
-                ListViewItem item = new ListViewItem();
-                item.Text = pet.Id.ToString();
+            //listViewAnimals.Items.Clear();
+            //foreach (HomeFriend pet in homeFriends)
+            //{
+            //    ListViewItem item = new ListViewItem();
+            //    item.Text = pet.Id.ToString();
 
-                ListViewItem.ListViewSubItem subItemName = new ListViewItem.ListViewSubItem();
-                subItemName.Text = pet.Name;
-                item.SubItems.Add(subItemName);
+            //    ListViewItem.ListViewSubItem subItemName = new ListViewItem.ListViewSubItem();
+            //    subItemName.Text = pet.Name;
+            //    item.SubItems.Add(subItemName);
 
-                ListViewItem.ListViewSubItem subItemType = new ListViewItem.ListViewSubItem();
-                switch (pet.Type)
-                {
-                    case "Cat":
-                        subItemType.Text = "Кошка";
-                        break;
-                    case "Dog":
-                        subItemType.Text = "Собака";
-                        break;
-                    case "Hamster":
-                        subItemType.Text = "Хомяк";
-                        break;
-                    case "Donkey":
-                        subItemType.Text = "Осёл";
-                        break;
-                    case "Horse":
-                        subItemType.Text = "Лошадь";
-                        break;
-                    case "Camel":
-                        subItemType.Text = "Верблюд";
-                        break;
-                }
+            //    ListViewItem.ListViewSubItem subItemType = new ListViewItem.ListViewSubItem();
+            //    switch (pet.Type)
+            //    {
+            //        case "Cat":
+            //            subItemType.Text = "Кошка";
+            //            break;
+            //        case "Dog":
+            //            subItemType.Text = "Собака";
+            //            break;
+            //        case "Hamster":
+            //            subItemType.Text = "Хомяк";
+            //            break;
+            //        case "Donkey":
+            //            subItemType.Text = "Осёл";
+            //            break;
+            //        case "Horse":
+            //            subItemType.Text = "Лошадь";
+            //            break;
+            //        case "Camel":
+            //            subItemType.Text = "Верблюд";
+            //            break;
+            //    }
                  
-                item.SubItems.Add(subItemType);
+            //    item.SubItems.Add(subItemType);
 
-                ListViewItem.ListViewSubItem subItemCommand = new ListViewItem.ListViewSubItem();
-                subItemCommand.Text = string.Join(", ", pet.Commands);
-                item.SubItems.Add(subItemCommand);
+            //    ListViewItem.ListViewSubItem subItemCommand = new ListViewItem.ListViewSubItem();
+            //    subItemCommand.Text = string.Join(", ", pet.Commands);
+            //    item.SubItems.Add(subItemCommand);
 
-                ListViewItem.ListViewSubItem subItemBirthday = new ListViewItem.ListViewSubItem();
-                subItemBirthday.Text = pet.Birthday.Date.ToShortDateString().ToString();
-                item.SubItems.Add(subItemBirthday);
+            //    ListViewItem.ListViewSubItem subItemBirthday = new ListViewItem.ListViewSubItem();
+            //    subItemBirthday.Text = pet.Birthday.Date.ToShortDateString().ToString();
+            //    item.SubItems.Add(subItemBirthday);
                 
-                listViewAnimals.Items.Add(item);
-            }
+            //    listViewAnimals.Items.Add(item);
+            //}
+            timerUpdate.Start();
         }
 
         private void buttonAddAnimal_Click(object sender, EventArgs e)
@@ -143,6 +144,60 @@ namespace AnimalNurseryDesktop
             FormUpdateAnimal formUpdateClient = new FormUpdateAnimal(listViewAnimals.FocusedItem);
             animalNurseryClient.DeleteAsync(int.Parse(listViewAnimals.FocusedItem.Text));
             listViewAnimals.Items.Remove(listViewAnimals.FocusedItem);
+        }
+
+        private void timerUpdate_Tick(object sender, EventArgs e)
+        {
+            AnimalNurseryClient animalNurseryClient = new AnimalNurseryClient("http://localhost:5244/",
+           new System.Net.Http.HttpClient());
+
+            ICollection<HomeFriend> homeFriends = animalNurseryClient.GetAllAsync().Result;
+
+            listViewAnimals.Items.Clear();
+            foreach (HomeFriend pet in homeFriends)
+            {
+                ListViewItem item = new ListViewItem();
+                item.Text = pet.Id.ToString();
+
+                ListViewItem.ListViewSubItem subItemName = new ListViewItem.ListViewSubItem();
+                subItemName.Text = pet.Name;
+                item.SubItems.Add(subItemName);
+
+                ListViewItem.ListViewSubItem subItemType = new ListViewItem.ListViewSubItem();
+                switch (pet.Type)
+                {
+                    case "Cat":
+                        subItemType.Text = "Кошка";
+                        break;
+                    case "Dog":
+                        subItemType.Text = "Собака";
+                        break;
+                    case "Hamster":
+                        subItemType.Text = "Хомяк";
+                        break;
+                    case "Donkey":
+                        subItemType.Text = "Осёл";
+                        break;
+                    case "Horse":
+                        subItemType.Text = "Лошадь";
+                        break;
+                    case "Camel":
+                        subItemType.Text = "Верблюд";
+                        break;
+                }
+
+                item.SubItems.Add(subItemType);
+
+                ListViewItem.ListViewSubItem subItemCommand = new ListViewItem.ListViewSubItem();
+                subItemCommand.Text = string.Join(", ", pet.Commands);
+                item.SubItems.Add(subItemCommand);
+
+                ListViewItem.ListViewSubItem subItemBirthday = new ListViewItem.ListViewSubItem();
+                subItemBirthday.Text = pet.Birthday.Date.ToShortDateString().ToString();
+                item.SubItems.Add(subItemBirthday);
+
+                listViewAnimals.Items.Add(item);
+            }
         }
     }
 }
