@@ -30,6 +30,10 @@ namespace AnimalNurseryDesktop
         private void button1_Click(object sender, EventArgs e)
         {
             CreateHomeFriendsRequest animal = new CreateHomeFriendsRequest();
+            if (textBoxName.Text == string.Empty || textBoxCommands.Text == string.Empty) {
+                throw new NotImplementedException("Введено пустое поле!");
+
+            }
             animal.Name = textBoxName.Text;
             animal.Commands = textBoxCommands.Text;
             switch (comboBoxType.Text) {

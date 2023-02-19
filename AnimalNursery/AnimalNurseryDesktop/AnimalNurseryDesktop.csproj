@@ -65,44 +65,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAddAnimal.cs">
+    <Compile Include="Counter.cs" />
+    <Compile Include="Forms\FormAddAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddAnimal.Designer.cs">
+    <Compile Include="Forms\FormAddAnimal.Designer.cs">
       <DependentUpon>FormAddAnimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAddCommands.cs">
+    <Compile Include="Forms\FormAddCommands.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddCommands.Designer.cs">
+    <Compile Include="Forms\FormAddCommands.Designer.cs">
       <DependentUpon>FormAddCommands.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUpdateAnimal.cs">
+    <Compile Include="Forms\FormUpdateAnimal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormUpdateAnimal.Designer.cs">
+    <Compile Include="Forms\FormUpdateAnimal.Designer.cs">
       <DependentUpon>FormUpdateAnimal.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OpenAPIs\swagger.cs" />
     <Compile Include="OpenAPIs\swagger1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormAddAnimal.resx">
+    <EmbeddedResource Include="Forms\FormAddAnimal.resx">
       <DependentUpon>FormAddAnimal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddCommands.resx">
+    <EmbeddedResource Include="Forms\FormAddCommands.resx">
       <DependentUpon>FormAddCommands.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpdateAnimal.resx">
+    <EmbeddedResource Include="Forms\FormUpdateAnimal.resx">
       <DependentUpon>FormUpdateAnimal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

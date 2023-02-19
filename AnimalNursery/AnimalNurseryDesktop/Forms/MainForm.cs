@@ -37,25 +37,25 @@ namespace AnimalNurseryDesktop
                 item.SubItems.Add(subItemName);
 
                 ListViewItem.ListViewSubItem subItemType = new ListViewItem.ListViewSubItem();
-                switch (subItemType.Text)
+                switch (pet.Type)
                 {
                     case "Cat":
-                        pet.Type = "Кошка";
+                        subItemType.Text = "Кошка";
                         break;
                     case "Dog":
-                        pet.Type = "Собака";
+                        subItemType.Text = "Собака";
                         break;
                     case "Hamster":
-                        pet.Type = "Хомяк";
+                        subItemType.Text = "Хомяк";
                         break;
                     case "Donkey":
-                        pet.Type = "Осёл";
+                        subItemType.Text = "Осёл";
                         break;
                     case "Horse":
-                        pet.Type = "Лошадь";
+                        subItemType.Text = "Лошадь";
                         break;
                     case "Camel":
-                        pet.Type = "Верблюд";
+                        subItemType.Text = "Верблюд";
                         break;
                 }
                  
@@ -68,7 +68,6 @@ namespace AnimalNurseryDesktop
                 ListViewItem.ListViewSubItem subItemBirthday = new ListViewItem.ListViewSubItem();
                 subItemBirthday.Text = pet.Birthday.Date.ToShortDateString().ToString();
                 item.SubItems.Add(subItemBirthday);
-
                 
                 listViewAnimals.Items.Add(item);
             }
@@ -76,8 +75,15 @@ namespace AnimalNurseryDesktop
 
         private void buttonAddAnimal_Click(object sender, EventArgs e)
         {
-            FormAddAnimal formAddAnimal = new FormAddAnimal();
-            formAddAnimal.ShowDialog();
+            //FormAddAnimal formAddAnimal = new FormAddAnimal();
+            //formAddAnimal.ShowDialog();
+            try {
+                Counter.add();
+            }
+            catch {
+                throw new NotImplementedException("Введено пустое поле!");
+            }
+           
         }
 
         private void toolStripMenuItemAddCommands_Click(object sender, EventArgs e)
